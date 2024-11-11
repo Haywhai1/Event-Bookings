@@ -45,7 +45,7 @@
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
           alt="logo"
         />
-        <span style="font-size: 30px">BookWithUs</span>
+        <span >BookWithUs</span>
       </div>
       <div style="display: flex; align-items: center; gap: 20px">
         <i class="fa-solid fa-bell"></i>
@@ -80,9 +80,9 @@
       </div>
     </div>
 
-    <div class="bg-gray-100 py-10">
+    <!-- <div class="bg-gray-100 py-10">
       <div x-data="carousel()" class="carousel-container relative">
-        <!-- Left Arrow -->
+        
         <button
           @click="scrollLeft"
           class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
@@ -90,14 +90,14 @@
           &#10094;
         </button>
 
-        <!-- Carousel Track -->
+        
         <div class="carousel-track">
           <template x-for="(image, index) in images" :key="index">
             <img :src="image" alt="carousel item" class="carousel-item" />
           </template>
         </div>
 
-        <!-- Right Arrow -->
+        
         <button
           @click="scrollRight"
           class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
@@ -105,7 +105,7 @@
           &#10095;
         </button>
       </div>
-    </div>
+    </div> -->
 
     <header>ALL EVENTS</header>
 
@@ -302,12 +302,12 @@
  
 
 
-<div class="flex   m-2" id="ebox">
+<div class="flex  m-2" id="ebox">
     <div class="max-w-[720px] mx-auto">
         
 
         <!-- Centering wrapper -->
-        <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-60 h-[20rem] overflow-hidden" break-words>
+        <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-60 h-[20rem] overflow-hidden break-words" id="cards" >
             <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl w-50 h-[100rem]">
                 <img
                     src="${events.imageURL}"
