@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* body{background-color:black} */
+    </style>
+  </head>
+  <body>
+    
+
+    <div id="detailsdiv"></div>
+
+    <!-- <button id="del-btn">Delete Account</button> -->
+    <p id="display"></p>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        deleteDoc,
+        query,
+        where,
+        getDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        deleteUser,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBEOuAI5WRGzbR0sk6GlX-ukl1XYxjgU6A",
+        authDomain: "event-bookings-59c6b.firebaseapp.com",
+        projectId: "event-bookings-59c6b",
+        storageBucket: "event-bookings-59c6b.appspot.com",
+        messagingSenderId: "1766430079",
+        appId: "1:1766430079:web:c6e85ab202b5de8f8ff64a",
+        measurementId: "G-03V12DZZ3W",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      onAuthStateChanged(auth, async (user) => {
+        user = auth.currentUser;
+        if (user) {
+          // console.log(user);
+
+          const userData = await fetchUserData(user.uid);
+          if (userData) {
+            document.getElementById("detailsdiv").innerHTML = `
+
+    <div class="max-w-4xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-lg">
+  <!-- Profile Picture Upload Section -->
+  <div class="text-left">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Profile Details</h2>
+
+    <!-- Circle Upload Button -->
+    <div class="upload-div border border-gray-400 w-[300px] h-[300px] flex items-center justify-center rounded-full mb-4">
+      <label class="cursor-pointer text-gray-600">
+        <input type="file" accept="image/*" class="hidden" />
+        Upload Image
+      </label>
+    </div>
+  </div>
+
+  <!-- User Details Section -->
+  <div class="space-y-4 text-gray-800">
+    <p><strong>Name:</strong> ${userData.name}</p>
+    <p><strong>Email:</strong> ${userData.email}</p>
+    <p><strong>Created At:</strong> ${userData.createdAtString}</p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="flex space-x-4">
+    <button id="logout" type="button" class="w-full sm:w-auto bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-600 focus:outline-none transition">
+      Logout
+    </button>
+    <button onclick="deleteAccount()" class="w-full sm:w-auto bg-gray-500 text-white py-2 px-6 rounded-lg hover:bg-gray-600 focus:outline-none transition">
+      Delete Account
+    </button>
+  </div>
+</div>
+
+
+            
+            `;
+
+            const logoutButton = document.getElementById("logout");
+            logoutButton.addEventListener("click", async () => {
+              await signOut(auth);
+              console.log("User signed out");
+              window.location.href = "login.html";
+            });
+          }
+        } else {
+          window.location.href = "login.html";
+        }
+      });
+
+      const fetchUserData = async (uid) => {
+        try {
+          const userDocRef = doc(db, "users", uid);
+          const userDoc = await getDoc(userDocRef);
+
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            console.log("User Data:", userData);
+            return userData;
+          } else {
+            console.log("No user data found");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+
+      // async function logout(){
+      //     await signOut(auth);
+      //     console.log("User signed out");
+      //     window.location.href = "login.html";
+      // };
+
+      //   document.getElementById("del-btn").addEventListener("click", async () => {
+      //     const user = auth.currentUser;
+      //     console.log(user);
+
+      //     if (user) {
+      //       try {
+      //         await deleteUser(user);
+
+      //         const colRef = doc(db, "users", userid);
+      //         await deleteDoc(colRef);
+      //         console.log(uid);
+      //         console.log(colRef);
+
+      //         document.getElementById("display").innerHTML =
+      //           "Account deleted successfully.";
+      //       } catch (error) {
+      //         console.log(error);
+
+      //         if (error.code === "auth/requires-recent-login") {
+      //           alert(
+      //             "You need to log in again to delete your account. You'll be logged out."
+      //           );
+      //           await signOut(auth);
+      //           window.location.href = "./login.html";
+      //         } else {
+      //           document.getElementById("display").innerHTML = error.message;
+      //           console.log(error);
+      //         }
+      //       }
+      //     } else {
+      //       alert("No user is logged in.");
+      //       window.location.href = "./login.html";
+      //     }
+      //   });
+    </script>
+  </body>
+</html>
