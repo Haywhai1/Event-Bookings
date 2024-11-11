@@ -1,0 +1,45 @@
+
+    @media (max-width: 480px) {
+        #logout {
+            display: none;
+        }
+
+        nav{
+            padding: 15px;
+            font-size: 20px;
+        }
+        .main{
+            padding-top: 180px;
+            padding-bottom: 140px;
+        }
+        .main h1{
+            font-size: 49px;
+            padding-bottom: 120px;
+        }
+        .main br{
+            display: none;
+        }
+        .main h2 {
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .animated-text {
+            font-size: 2rem;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 3s infinite ease-in-out; /* Animation name, duration, and state retention */
+          }
+          
+          /* Define the animation */
+          @keyframes fadeInUp {
+            0% {
+              opacity: 0;
+              transform: translateY(120px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+        }
+    }
