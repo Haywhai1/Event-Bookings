@@ -60,6 +60,9 @@
         .eventdiv-content{
             margin: 22% auto;
             width: 80%;
+            justify-items: center;
+            justify-self: center;
+            align-self: center;
         }
         #form{
             width: 93%;
