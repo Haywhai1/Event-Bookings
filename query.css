@@ -64,11 +64,13 @@
         .eventdiv-content{
             margin: 22% auto;
             width: 80%;
-            justify-items: center;
-            justify-self: center;
-            align-self: center;
-            align-items: center;
-            align-content: center;
+            /* display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center; */
+
+        }
+        .eventdiv{
             
         }
         #form{
