@@ -5,27 +5,31 @@
         }
 
         nav{
-            padding: 5px;
-            font-size: 15px;
+            padding: 13px;
+            font-size: 20px;
         }
-        nav span{font-size: 18px;}
+        nav span{font-size: 20px;}
         nav img{
             height: 50px;
         }
         .main{
+            /* background-color: rgb(31, 66, 66); */
+            background-color: rgb(32, 31, 31);
             padding-top: 120px;
             padding-bottom: 80px;
         }
         .main h1{
-            font-size: 60px;
-            padding-bottom: 30px;
-            
+            font-size: 50px;
+            padding: 25px;
+            color: coral;
+
         }
         .main br{
             display: none;
         }
         .main h2 {
             font-size: 30px;
+            color: white;
         }
         .animated-text {
             color: #333;
@@ -63,6 +67,9 @@
             justify-items: center;
             justify-self: center;
             align-self: center;
+            align-items: center;
+            align-content: center;
+            
         }
         #form{
             width: 93%;
