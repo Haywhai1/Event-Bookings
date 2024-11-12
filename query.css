@@ -64,15 +64,13 @@
         .eventdiv-content{
             margin: 22% auto;
             width: 80%;
-            /* display: flex;
+            display: flex;
             flex-direction: column;
             text-align: center;
-            align-items: center; */
+            align-items: center;
 
         }
-        .eventdiv{
-            
-        }
+       
         #form{
             width: 93%;
             margin-left: 13px;
