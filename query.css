@@ -61,15 +61,24 @@
             height: 60%;
         }
         #cards{ width: 100%;}
-        .eventdiv-content{
-            margin: 22% auto;
-            width: 80%;
+        .eventdiv-content {
+            margin: 0 auto; 
             display: flex;
             flex-direction: column;
-            text-align: center;
-            align-items: center;
-
+            justify-content: center;
+            align-items: center; 
+            text-align: center; 
         }
+    
+        .eventdiv-content img {
+            max-width: 100%; 
+            height: auto; 
+        }
+    
+        .eventdiv-content h1, .eventdiv-content h2 {
+            font-size: 1.5rem; 
+        }
+    
        
         #form{
             width: 93%;
