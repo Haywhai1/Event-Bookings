@@ -61,7 +61,7 @@
             height: 60%;
         }
         #cards{ width: 100%;}
-        .evantdiv{
+        .eventdiv{
             display: flex;
             align-items: center;
             justify-content: center;
