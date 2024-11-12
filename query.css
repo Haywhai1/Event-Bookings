@@ -61,6 +61,11 @@
             height: 60%;
         }
         #cards{ width: 100%;}
+        .evantdiv{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
         .eventdiv-content {
             margin: 0 auto; 
             display: flex;
@@ -68,6 +73,7 @@
             justify-content: center;
             align-items: center; 
             text-align: center; 
+            width: 80%;
         }
     
         .eventdiv-content img {
